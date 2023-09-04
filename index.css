@@ -1,4 +1,16 @@
+body {
+    background-color: green;
+    text-align: center;
+    color: aliceblue;
+    font-size: 30px;
+    font-weight: bold;
+}
+
 h1 {
-    color: rgb(255, 208, 0);
+    color: goldenrod;
     font-size: 75px;
+}
+
+#message-el {
+    font-style: italic;
 }
