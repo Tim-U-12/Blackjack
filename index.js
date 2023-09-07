@@ -1,4 +1,4 @@
-const cardsInHand = [5, 6]
+const cardsInHand = [getRandomCard(), getRandomCard()]
 let sum = cardsInHand.reduce(function(x,y) {
     return x+y;
 }, 0)
@@ -9,8 +9,15 @@ let messageEl = document.getElementById('message-el')
 let sumEl = document.getElementById("sum-el")
 let cardsEl = document.getElementById("cards-el")
 
-
 function startGame() {
+    renderGame()
+}
+
+function getRandomCard() {
+    return Math.floor(Math.random() * 21) + 1
+}
+
+function renderGame() {
     sumEl.textContent = 'Sum: ' + sum
     cardsEl.textContent = 'Cards: ' + cardsInHand.join(' | ')
 
@@ -28,9 +35,9 @@ function startGame() {
 }
 
 function newCard() {
-    let drawnCard = 11
+    let drawnCard = getRandomCard()
     cardsInHand.push(drawnCard)
     sum += drawnCard
 
-    startGame()
+    renderGame()
 }
