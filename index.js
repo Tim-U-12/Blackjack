@@ -1,6 +1,7 @@
-let cardOne = 5
-let cardTwo = 6
-let sum = cardOne + cardTwo
+const cardsInHand = [5, 6]
+let sum = cardsInHand.reduce(function(x,y) {
+    return x+y;
+}, 0)
 let hasBlackJack = false
 let isAlive = true
 let message = ""
@@ -10,8 +11,8 @@ let cardsEl = document.getElementById("cards-el")
 
 
 function startGame() {
-    sumEl.textContent += sum
-    cardsEl.textContent += cardOne + " | " + cardTwo
+    sumEl.textContent = 'Sum: ' + sum
+    cardsEl.textContent = 'Cards: ' + cardsInHand.join(' | ')
 
     if (sum < 21) {
         message = "Do you want to draw another card?"
@@ -27,5 +28,9 @@ function startGame() {
 }
 
 function newCard() {
-    
+    let drawnCard = 11
+    cardsInHand.push(drawnCard)
+    sum += drawnCard
+
+    startGame()
 }
